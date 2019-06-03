@@ -11,4 +11,4 @@ const priceOfFood = shoppingItems
   .filter(({category}) => category === 'food')
   .reduce((acc, {price}) => acc + price, 0);
 
-console.log(`Price of all Food stuf≤f is $${priceOfFood.toFixed(2)}`);
+console.log(`Price of all Food stuff is $${priceOfFood.toFixed(2)}`);
