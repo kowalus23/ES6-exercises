@@ -19,7 +19,7 @@ Promise.all(urls.map(url => {
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('success');
-  }, 900);
+  }, 500);
 }).then((value) => {
   console.log(`#1 answer: ${value}`);
 });
@@ -51,3 +51,30 @@ Promise.all(urlsStarWars.map(url =>
     console.log('4', array[3]);
   })
   .catch(err => console.log('ughhh you have to fix it!', err));
+
+////// ASYNC / AWAIT /////
+console.log("///// ASYNC/AWAY /////");
+async function fetchUsers() {
+  const resp = await fetch('https://jsonplaceholder.typicode.com/users');
+  const data = await resp.json();
+  console.log('async/await', data);
+}
+
+console.log('async/await', fetchUsers());
+
+const getData = async function () {
+  try {
+    const [users, posts, albums] = await Promise.all(urls.map(async url => {
+        const response = await fetch(url);
+        return response.json();
+      }
+    ));
+    console.log('users', users);
+    console.log('posts', posts.slice(0, 10));
+    console.log('albums', albums.slice(0, 10));
+  } catch (error) {
+    console.log('ups!', error);
+  }
+};
+
+console.log(getData());
