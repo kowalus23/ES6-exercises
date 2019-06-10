@@ -7,6 +7,7 @@ import './commonJS-training/map'
 import './commonJS-training/reduce'
 import './commonJS-training/simple_methods'
 import './commonJS-training/promises'
+import './commonJS-training/es8'
 
 class App extends Component {
   render() {
