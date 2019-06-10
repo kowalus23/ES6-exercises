@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import list from './commonJS-training/import_list'
-console.log(list);
+import './commonJS-training/filter'
+import './commonJS-training/find'
+import './commonJS-training/map'
+import './commonJS-training/reduce'
+import './commonJS-training/simple_methods'
+import './commonJS-training/promises'
 
 class App extends Component {
   render() {

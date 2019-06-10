@@ -1,3 +1,5 @@
+console.log('//////// OTHER array methods //////');
+
 // slice
 const myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const newArray = myArray.slice(3, 6);

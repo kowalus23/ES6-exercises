@@ -1,5 +1,7 @@
 const shoppingItems = require('./object_information');
 
+console.log('//////// REDUCE //////');
+
 const shoppingItemsSum = shoppingItems.reduce((acc, item) => {
     return acc + item.price;
 }, 0);
