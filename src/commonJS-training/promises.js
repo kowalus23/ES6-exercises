@@ -69,12 +69,23 @@ const getData = async function () {
         return response.json();
       }
     ));
-    console.log('users', users);
-    console.log('posts', posts.slice(0, 10));
-    console.log('albums', albums.slice(0, 10));
+    console.log('users', users.slice(0, 8));
+    console.log('posts', posts.slice(0, 8));
+    console.log('albums', albums.slice(0, 8));
   } catch (error) {
     console.log('ups!', error);
   }
 };
 
 console.log(getData());
+
+/// ES9 for of await ///
+const getData2 = async function () {
+  const arrayOfPromises = urls.map(url => fetch(url));
+  for await (let request of arrayOfPromises) {
+    const data = await request.json();
+    console.log(data.slice(0, 6));
+  }
+};
+
+console.log(getData2());
