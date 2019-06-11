@@ -34,3 +34,7 @@
 .pl-2 {
   padding-left: 4px;
 }
+
+.non-dec {
+  list-style: none;
+}

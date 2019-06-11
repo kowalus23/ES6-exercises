@@ -14,29 +14,40 @@ class App extends Component {
     super(props);
 
     this.state = {
-      apiTest: [],
+      fifthPerson: [],
+      peopleList: []
     };
   }
 
   componentDidMount() {
     fetch('https://swapi.co/api/people/5')
       .then(resp => resp.json())
-      .then(data => this.setState({apiTest: data}))
-      .catch(error => console.log('ERROR!', error))
+      .then(data => this.setState({fifthPerson: data}))
+      .catch(error => console.log('ERROR! with fifth person from people list', error));
+
+    fetch('https://swapi.co/api/people/')
+      .then(resp => resp.json())
+      .then(data => this.setState({peopleList: data.results}))
+      .catch(error => console.log('ERROR with people list', error))
   }
 
   render() {
-    const {apiTest} = this.state;
+    const {fifthPerson, peopleList} = this.state;
 
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
           <p> 5rd person from swapi people is
-            <span className={"pl-2"} style={{color: apiTest.hair_color}}>
-              {apiTest.name}
+            <span className={"pl-2"} style={{color: fifthPerson.hair_color}}>
+              {fifthPerson.name}
             </span>
           </p>
+          <ul><h2>First page of Star Wars People list:</h2>
+            {peopleList.map((people, key) =>
+              <li className={"non-dec"} key={key}>{people.name}</li>
+              )}
+          </ul>
           <a
             className="App-link"
             href="https://reactjs.org"
